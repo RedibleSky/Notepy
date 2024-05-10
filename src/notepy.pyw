@@ -10,14 +10,14 @@ print("Note: running this app in pyw or pythonw is more recommended than in py o
 def program_version():
     bigfont = tkfont.Font(size=25, weight="bold")
     ver = Toplevel(root)
-    version_label = tk.Label(ver, text="Program version: notepy.ver(\"1.3\")\n\n")
+    version_label = tk.Label(ver, text="Program version: notepy.ver(\"1.4\")\n\n")
     version_label.pack()
-    madeby = tk.Label(ver, text="made by orca.pet", font=bigfont)
+    madeby = tk.Label(ver, text="made by orca.pet, files organisation by RedibleSky", font=bigfont)
     madeby.pack()
 
 def workings_help():
     top = Toplevel(root)
-    label1 = tk.Label(top, text="In the commands menu you will\nfind \"New\", \"Open\", \"Save\" and \"Exit\".\nWhat these actually do is:\n\"New\" basically makes a new empty file;\n\"Open\" opens another file WITHOUT saving it,\n\"Save\" writes data you wrote and\n\"Exit\" exits ALSO WITHOUT saving contents.")
+    label1 = tk.Label(top, text="In the commands menu you will\nfind \"New\", \"Open\", \"Save\" and \"Exit\".\nWhat these actually do is:\n\"New\" basically makes a new empty file;\n\"Open\" opens another file WITHOUT saving it,\n\"Save\" writes data you wrote and\n\"Exit\" exits also without saving contents.")
     label1.pack()
 
 def new_file():
@@ -31,7 +31,7 @@ def open_file():
             text_area.insert(1.0, content)
     root.title(f"Notepy - {file_path}")
     if file_path == "":
-        root.title("Notepy - untitled")
+        root.title("Notepy - Untitled")
 
 def save_file():
     file_path = filedialog.asksaveasfilename(parent=root, filetypes=[("Normal text files", "*.txt"), ("Python files", "*.py"), ("No console python files", "*.pyw")])  # This gets the file path
@@ -49,7 +49,7 @@ else:
 # Use the bundled icon path
 icon_path = os.path.join(bundle_dir, 'fileicon.ico')
 root = tk.Tk()
-root.title("Notepy - untitled")
+root.title("Notepy - Untitled")
 root.iconbitmap('%~dp0\fileicon.ico')
 menu = tk.Menu(root)
 root.config(menu=menu)
@@ -68,6 +68,7 @@ file_menu.add_command(label="Exit", command=root.quit)
 menu.add_cascade(label="Help", menu=help_menu)
 
 help_menu.add_command(label="Help", command=workings_help)
+help_menu.add_command(label="Comming Soon", command=workings_help)
 help_menu.add_separator()
 help_menu.add_command(label="About Notepy...", command=program_version)
 
